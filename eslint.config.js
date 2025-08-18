@@ -6,6 +6,7 @@ import react from 'eslint-plugin-react';
 import tseslint from 'typescript-eslint';
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 import reactCompiler from 'eslint-plugin-react-compiler';
+import unusedImports from 'eslint-plugin-unused-imports';
 
 export default tseslint.config(
   { ignores: ['dist'] },
@@ -21,6 +22,7 @@ export default tseslint.config(
       globals: globals.browser,
     },
     plugins: {
+      'unused-imports': unusedImports,
       react,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
@@ -35,6 +37,8 @@ export default tseslint.config(
       'react-compiler/react-compiler': 'error',
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
+      'unused-imports/no-unused-imports': 'error',
+      'no-console': 'error',
     },
     settings: {
       react: {
