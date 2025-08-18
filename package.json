@@ -9,7 +9,7 @@
     "lint": "eslint . --fix",
     "preview": "vite preview",
     "format": "prettier --write .",
-    "prepare": "husky && chmod ug+x .husky/*",
+    "prepare": "husky",
     "lint-staged": "lint-staged",
     "test": "vitest",
     "test:ui": "vitest --ui",
