@@ -3,9 +3,11 @@ import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import removeConsole from "vite-plugin-remove-console";
 import { configDefaults } from "vitest/config";
+import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [
     react(),
+    tailwindcss(),
     tsconfigPaths(),
     removeConsole({ custom: ["console.log()", "console.warn()", "debugger"] }),
   ],
