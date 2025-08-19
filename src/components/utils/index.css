@@ -4,7 +4,7 @@ button {
   width: 30%;
   height: 52%;
   border-radius: 1.7rem;
-  color: #090909;
+  color: var(--color-slate-600);
   padding: 0.7em 1.7em;
   font-size: 18px;
   border-radius: 0.5em;

@@ -5,7 +5,7 @@ type ModalProps = {
   children: ReactNode;
 };
 
-export function Modal({ children }: ModalProps) {
+export function Portal({ children }: ModalProps) {
   const elRef = useRef<HTMLDivElement | null>(null);
   if (!elRef.current) elRef.current = document.createElement("div");
 
