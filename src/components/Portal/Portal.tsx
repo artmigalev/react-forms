@@ -13,6 +13,7 @@ export function Portal({ children }: ModalProps) {
     const modalRoot = document.body.querySelector("#modal") as HTMLElement;
 
     const el = elRef.current ?? document.createElement("div");
+    el.setAttribute("aria-modal", "true");
     modalRoot.appendChild(el);
 
     return () => {

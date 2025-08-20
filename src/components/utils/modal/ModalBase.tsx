@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import "./index.css";
 type ModalProps = {
   children: React.ReactNode;
@@ -7,12 +7,17 @@ type ModalProps = {
 };
 
 export const Modal = ({ children, isShow, fnClose }: ModalProps): React.JSX.Element => {
-  const [isShowModal, setShowModal] = useState(isShow);
-
+  useEffect(() => {
+    const closeOnEscapeKey = (e: KeyboardEvent) => (e.key === "Escape" ? fnClose() : null);
+    document.body.addEventListener("keydown", closeOnEscapeKey);
+    return () => {
+      document.body.removeEventListener("keydown", closeOnEscapeKey);
+    };
+  }, [fnClose]);
   return (
     <dialog
-      onClick={() => setShowModal(false)}
-      open={isShowModal}
+      role="dialog"
+      open={isShow}
       className="modal w-[55%] h-[50%] absolute top-[25%] left-[25%]  text-center bg-gradient-to-l from-slate-300 to-slate-100 text-slate-600 border border-slate-300  p-4 gap-4 rounded-lg shadow-md flex justify-center text-3xl items-center "
     >
       <button onClick={() => fnClose()} className="modal-close  duration-300 p-2">
