@@ -7,7 +7,6 @@ import Form from "@/components/utils/form/Form";
 
 export const HomePage = (): React.JSX.Element => {
   const [isShow, setShow] = useState(false);
-
   const closeModal = () => setShow(false);
 
   return (
@@ -15,7 +14,7 @@ export const HomePage = (): React.JSX.Element => {
       {isShow && (
         <Portal>
           <Modal fnClose={closeModal} isShow={isShow}>
-            <Form provider={"formData"} />
+            <Form />
           </Modal>
         </Portal>
       )}

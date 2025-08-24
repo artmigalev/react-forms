@@ -1,18 +1,25 @@
 import { Controller, useForm } from "react-hook-form";
 import "./Form.css";
-import type { FieldData, FormData, FormProps } from "@/types/form";
+import type { FieldData, FormData } from "@/types/form";
 import { fieldMap, fields } from "@/data/variables";
 import { Field } from "./Field";
+import { useAppDispatch } from "@/app/hooks";
+import { setState } from "@/app/formData/formSlice";
+import type React from "react";
 
-const Form = ({ provider }: FormProps) => {
+const Form = (): React.ReactElement => {
+  const dispatch = useAppDispatch();
+
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
   } = useForm<FormData>();
-  const providerFields = fields[provider];
-  const onSubmit = async (data: FormData) => data;
+  const providerFields = fields["formData"];
+  const onSubmit = async (data: FormData) => {
+    dispatch(setState(data));
+  };
 
   const renderField = (name: keyof FormData, fieldData: FieldData) => {
     switch (fieldData.type) {

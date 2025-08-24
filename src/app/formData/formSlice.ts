@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit/react";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit/react";
 import type { RootState } from "../store";
 import type { FormData } from "@/types/form";
 export type FormState = FormData;
@@ -17,8 +17,8 @@ export const formSlice = createSlice({
   name: "formData",
   initialState,
   reducers: {
-    setState: (state) => {
-      return { ...state };
+    setState: (state, action: PayloadAction<FormData>) => {
+      return { ...state, ...action.payload };
     },
   },
 });

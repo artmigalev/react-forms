@@ -344,13 +344,13 @@ export const fieldMap: Record<keyof FormData, FieldData> = {
 };
 export const fields: Record<"formData", Array<keyof FormData>> = {
   formData: [
-    "accept",
-    "age",
-    "email",
-    "gender",
     "name",
+    "age",
+    "gender",
+    "email",
     "password",
     "passwordSecond",
     "selectCountry",
+    "accept",
   ],
 };

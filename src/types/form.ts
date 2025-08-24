@@ -1,6 +1,6 @@
 import type { countries } from "@/data/variables";
 export interface FormProps {
-  provider: "formData";
+  provider: FormData;
 }
 export type Gender = "male" | "female";
 export type FormData = {
