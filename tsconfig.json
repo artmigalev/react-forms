@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "types": ["vitest/globals", "node", "vite/client"]
+    "types": ["vitest/globals", "node", "vite/client"],
+    "strict": true
   },
   "files": [],
   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]

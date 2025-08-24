@@ -1,12 +1,13 @@
 import { Controller, useForm } from "react-hook-form";
 import "./Form.css";
+import { schema } from "@/schema/formSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
 import type { FieldData, FormData } from "@/types/form";
 import { fieldMap, fields } from "@/data/variables";
 import { Field } from "./Field";
 import { useAppDispatch } from "@/app/hooks";
 import { setState } from "@/app/formData/formSlice";
 import type React from "react";
-
 const Form = (): React.ReactElement => {
   const dispatch = useAppDispatch();
 
@@ -15,7 +16,9 @@ const Form = (): React.ReactElement => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
   const providerFields = fields["formData"];
   const onSubmit = async (data: FormData) => {
     dispatch(setState(data));
