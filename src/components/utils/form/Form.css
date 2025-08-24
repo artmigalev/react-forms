@@ -1,0 +1,13 @@
+.btn-form-submit {
+  width: 150px;
+  background-color: transparent;
+  border: 1px solid #e8e8e8;
+  box-shadow: none;
+  border-radius: var(--radius-md);
+  position: relative;
+  right: 0;
+}
+.field {
+  border: 1px solid #f0ebeb;
+  border-radius: var(--radius-md);
+}
