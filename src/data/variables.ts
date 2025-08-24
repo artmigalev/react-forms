@@ -1,6 +1,6 @@
 import type { FieldData, FormData } from "@/types/form";
 
-export const countries = [
+export const countries: string[] = [
   "Афганистан",
   "Албания",
   "Антарктика",
