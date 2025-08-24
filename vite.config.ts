@@ -5,6 +5,7 @@ import removeConsole from "vite-plugin-remove-console";
 import { configDefaults } from "vitest/config";
 import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
+  base: "/react-forms/",
   plugins: [
     react(),
     tailwindcss(),
