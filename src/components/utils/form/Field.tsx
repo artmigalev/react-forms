@@ -12,7 +12,7 @@ export const Field = ({ children, label, error, htmlFor, required }: FieldProps)
         </label>
       )}
       {children}
-      {error && <small className="stroke-pink-700 ">{error.message}</small>}
+      {error && <small className=" text-red-600 ">{error.message}</small>}
     </div>
   );
 };

@@ -11,11 +11,37 @@
   border: 1px solid #f0ebeb;
   border-radius: var(--radius-md);
 }
-#image {
-  border: 1px solid #ccc;
-  padding: 0;
-  margin: 0;
-  /* width: 100%; */
-  height: 100%;
-  cursor: pointer;
+.file-input {
+  padding: 1rem;
+  border-radius: 1.7rem;
+  border: 1px solid #665f5f;
+  box-shadow:
+    6px 6px 12px #c5c5c5,
+    -6px -6px 12px #ffffff;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.file-input:active {
+  color: #666;
+  box-shadow:
+    inset 4px 4px 12px #c5c5c5,
+    inset -4px -4px 12px #ffffff;
+}
+.btn-form-submit {
+  border-radius: 1.7rem;
+  border: 1px solid #665f5f;
+  box-shadow:
+    6px 6px 12px #c5c5c5,
+    -6px -6px 12px #ffffff;
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    color: #666;
+    box-shadow:
+      inset 4px 4px 12px #c5c5c5,
+      inset -4px -4px 12px #ffffff;
+  }
 }

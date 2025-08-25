@@ -110,14 +110,18 @@ const Form = (): React.ReactElement => {
       case "file":
         return (
           <Field label={fieldData.label} htmlFor={name} key={name} error={errors[name]}>
-            <input
-              {...register(name, { required: fieldData.validation?.message })}
-              type={fieldData.type}
-              id={fieldData.type}
-              onChange={handleFile}
-              accept="image/png ,image/jpeg"
-              name={fieldData.type}
-            />
+            <label htmlFor={fieldData.type} className="file-input">
+              Choose file
+              <input
+                className="hidden"
+                {...register(name, { required: fieldData.validation?.message })}
+                type={fieldData.type}
+                id={fieldData.type}
+                onChange={handleFile}
+                accept="image/png ,image/jpeg"
+                name={fieldData.type}
+              />
+            </label>
           </Field>
         );
       default:
