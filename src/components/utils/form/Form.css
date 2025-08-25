@@ -1,0 +1,47 @@
+.btn-form-submit {
+  width: 150px;
+  background-color: transparent;
+  border: 1px solid #e8e8e8;
+  box-shadow: none;
+  border-radius: var(--radius-md);
+  position: relative;
+  right: 0;
+}
+.field {
+  border: 1px solid #f0ebeb;
+  border-radius: var(--radius-md);
+}
+.file-input {
+  padding: 1rem;
+  border-radius: 1.7rem;
+  border: 1px solid #665f5f;
+  box-shadow:
+    6px 6px 12px #c5c5c5,
+    -6px -6px 12px #ffffff;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.file-input:active {
+  color: #666;
+  box-shadow:
+    inset 4px 4px 12px #c5c5c5,
+    inset -4px -4px 12px #ffffff;
+}
+.btn-form-submit {
+  border-radius: 1.7rem;
+  border: 1px solid #665f5f;
+  box-shadow:
+    6px 6px 12px #c5c5c5,
+    -6px -6px 12px #ffffff;
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    color: #666;
+    box-shadow:
+      inset 4px 4px 12px #c5c5c5,
+      inset -4px -4px 12px #ffffff;
+  }
+}
