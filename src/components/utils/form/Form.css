@@ -11,3 +11,11 @@
   border: 1px solid #f0ebeb;
   border-radius: var(--radius-md);
 }
+#image {
+  border: 1px solid #ccc;
+  padding: 0;
+  margin: 0;
+  /* width: 100%; */
+  height: 100%;
+  cursor: pointer;
+}

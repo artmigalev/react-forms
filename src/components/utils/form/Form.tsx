@@ -15,6 +15,7 @@ const Form = (): React.ReactElement => {
     register,
     handleSubmit,
     control,
+    setValue,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(schema),
@@ -23,7 +24,25 @@ const Form = (): React.ReactElement => {
   const onSubmit = async (data: FormData) => {
     dispatch(setState(data));
   };
-
+  const handleFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files && event.target.files[0];
+    if (file) {
+      const validTypes = ["image/png", "image/jpeg"];
+      const maxSize = 5 * 1024 * 1024;
+      if (!validTypes.includes(file.type)) {
+        return;
+      }
+      if (file.size > maxSize) {
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result as string;
+        setValue("image", base64String);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   const renderField = (name: keyof FormData, fieldData: FieldData) => {
     switch (fieldData.type) {
       case "text":
@@ -37,9 +56,7 @@ const Form = (): React.ReactElement => {
           >
             <input
               className="border rounded-xl text-center placeholder:text-2xl placeholder:red"
-              {...register(name, {
-                required: fieldData.validation?.message,
-              })}
+              {...register}
               type={fieldData.type}
               id={name}
               autoComplete={"off"}
@@ -87,6 +104,19 @@ const Form = (): React.ReactElement => {
               type={fieldData.type}
               id={name}
               autoComplete={"off"}
+            />
+          </Field>
+        );
+      case "file":
+        return (
+          <Field label={fieldData.label} htmlFor={name} key={name} error={errors[name]}>
+            <input
+              {...register(name, { required: fieldData.validation?.message })}
+              type={fieldData.type}
+              id={fieldData.type}
+              onChange={handleFile}
+              accept="image/png ,image/jpeg"
+              name={fieldData.type}
             />
           </Field>
         );

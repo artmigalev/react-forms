@@ -12,6 +12,7 @@ export type FormData = {
   selectCountry: (typeof countries)[number];
   gender: Gender;
   accept: boolean;
+  image?: string;
 };
 
 export type FieldData = {

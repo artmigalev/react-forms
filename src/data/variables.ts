@@ -341,6 +341,15 @@ export const fieldMap: Record<keyof FormData, FieldData> = {
     options: countries,
     placeholder: "Select",
   },
+
+  image: {
+    label: "Upload Image",
+    type: "file",
+    validation: {
+      required: false,
+      message: "This field is required",
+    },
+  },
 };
 export const fields: Record<"formData", Array<keyof FormData>> = {
   formData: [
@@ -352,5 +361,6 @@ export const fields: Record<"formData", Array<keyof FormData>> = {
     "passwordSecond",
     "selectCountry",
     "accept",
+    "image",
   ],
 };

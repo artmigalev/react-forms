@@ -46,6 +46,7 @@ export const schema = z
       error: "Gender must be either male, female",
     }),
     accept: z.boolean().refine((val) => val === true, { message: "must accept terms" }),
+    image: z.string().min(2).max(100).optional(),
   })
   .superRefine((data, ctx) => {
     if (data.password !== data.passwordSecond) {
